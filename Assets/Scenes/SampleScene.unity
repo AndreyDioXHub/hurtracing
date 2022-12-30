@@ -165,13 +165,29 @@ MonoBehaviour:
   - {fileID: 66099042069539292, guid: 70059182ffba92648b054722fd0dd795, type: 3}
   - {fileID: 433200361792683554, guid: 70cfacc61767d13478ad48c15ac6f638, type: 3}
   - {fileID: 5228033527055705053, guid: deb974e5f782df842b6666bfc4cdd9d9, type: 3}
+  _finishLine: {fileID: 3439663870242953700, guid: 1e5924900e30d2a4bacefd7ceb1535f9, type: 3}
   _block: {fileID: 4543213763327676020, guid: 6b2779b21bb1765418f03efbb69659e8, type: 3}
-  _trackLenght: 20
+  _trackLenght: 5
   _trackWidth: 15
   _endposition: 0
-  _step: 0
-  _prevIndex: 0
+  _step: 5
+  _prevIndex: 2
   _trackParts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -244,14 +260,7 @@ MonoBehaviour:
     ID: 1
     Speed: 0
     Position: {x: 0, y: 0, z: 0}
-  - Name: Player 3
-    ID: 1
-    Speed: 0
-    Position: {x: 0, y: 0, z: 0}
-  - Name: Player 4
-    ID: 1
-    Speed: 0
-    Position: {x: 0, y: 0, z: 0}
+  _sortedPlayers: []
   _playerSpace: 3
   _playerID: 0
 --- !u!114 &20985683
@@ -418,8 +427,8 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
-  orthographic: 1
+  field of view: 80
+  orthographic: 0
   orthographic size: 10
   m_Depth: -1
   m_CullingMask:
