@@ -9,6 +9,11 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _playerName;
 
+    [SerializeField]
+    private GameObject _finishPanel;
+    [SerializeField]
+    private TextMeshProUGUI _finishText;
+
     private void Awake()
     {
         if(Instance == null)
@@ -26,6 +31,11 @@ public class UIController : MonoBehaviour
         _playerName.text = name;
     }
 
+    public void ShowFinishPanel(PlayerInfo info)
+    {
+        _finishPanel.SetActive(true);
+        _finishText.text = $"Player: {info.Name} - win!";
+    }
     // Start is called before the first frame update
     void Start()
     {

@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
     public void SetPlayer(PlayerInfo info)
     {
         Info = info;
-        Info.Speed = _speed;
+        _speed = Info.Speed;
     }
 
     public void MoveForward()
@@ -183,7 +183,8 @@ public class Player : MonoBehaviour
             {
                 if(hit.collider.name == "FinishLine")
                 {
-
+                    Debug.Log($"{Info.Name} : {Info.ID} : win");
+                    Game.Instance.OnPlayerWin?.Invoke(Info);
                 }
                 else
                 {
@@ -210,6 +211,7 @@ public class Player : MonoBehaviour
         _speed = 1;
         StopAllCoroutines();
     }
+
 }
 
 [Serializable]
@@ -217,7 +219,7 @@ public class PlayerInfo
 {
     public string Name;
     public int ID;
-    public float Speed;
+    public int Speed;
     public Vector3 Position;
     public PlayerInfo()
     {
@@ -226,7 +228,7 @@ public class PlayerInfo
         Speed = 0;
         Position = Vector3.zero;
     }
-    public PlayerInfo(string name, int id, float speed, Vector3 position)
+    public PlayerInfo(string name, int id, int speed, Vector3 position)
     {
         Name = name;
         ID = id;

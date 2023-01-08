@@ -1,26 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Game : MonoBehaviour
 {
+    public static Game Instance;
+
+    public UnityEvent<PlayerInfo> OnPlayerWin;
     [SerializeField]
     private Track _track;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private Players _players;
+
+    private void Awake()
     {
-        //StartGame();
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        StartGame();
+
+    }
+    public void RestartGame()
+    {
+        _track.ClearTrackPart();
+        _track.CreateTrackPart();
+        _players.RestartPlayers();
     }
 
     public void StartGame()
     {
         _track.CreateTrackPart();
-
+        _players.SpawnPlayers();
     }
 }

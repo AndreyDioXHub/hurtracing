@@ -26,6 +26,8 @@ public class Track : MonoBehaviour
 
     [SerializeField]
     private List<GameObject> _trackParts = new List<GameObject>();
+    [SerializeField]
+    private GameObject _finishLineSc;
 
 
     [ContextMenu("Create track part")]
@@ -96,11 +98,11 @@ public class Track : MonoBehaviour
             //Debug.Log($"{p.name}: {ch[1].position.x} : {ch[4].position.x}");
         }
 
-        GameObject finishLine = Instantiate(_finishLine);
+        _finishLineSc = Instantiate(_finishLine);
 
-        finishLine.transform.position = new Vector3(_endposition, _trackLenght*10, 0);
-        finishLine.transform.localScale = new Vector3(_trackWidth, 0.5f, 0.5f);
-        finishLine.name = "FinishLine";
+        _finishLineSc.transform.position = new Vector3(_endposition, _trackLenght*10, 0);
+        _finishLineSc.transform.localScale = new Vector3(_trackWidth, 0.5f, 0.5f);
+        _finishLineSc.name = "FinishLine";
     }
 
     [ContextMenu("Clear track part")]
@@ -115,6 +117,8 @@ public class Track : MonoBehaviour
             Destroy(tp);
         }
 
+        Destroy(_finishLineSc);
+        
         _trackParts = null;
         _trackParts = new List<GameObject>();
     }
